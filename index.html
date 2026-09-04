@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>魔女chichi Brand OS｜LINE & Instagram Version 4</title>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#c56f94">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="魔女chichi Brand OS">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+<style>
+:root{--bg:#fff8fb;--panel:#fff;--ink:#3d3137;--muted:#7d6e75;--line:#eadde3;--accent:#c56f94;--soft:#f7eaf0;--gold:#b99a66;--ok:#668266;--warn:#9a6b36;--danger:#a8545e;--shadow:0 8px 24px rgba(87,47,65,.07)}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;background:linear-gradient(#fff8fb,#fff);color:var(--ink)}button,.btn,input,select,textarea{font:inherit}button,.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:11px;cursor:pointer;font-weight:700}button.primary{background:var(--accent);border-color:var(--accent);color:#fff}button.danger{color:var(--danger)}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff;color:var(--ink)}textarea{min-height:82px}.shell{max-width:1320px;margin:auto;padding:16px}.top,.section-title,.actions,.tabs,.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.top,.section-title{justify-content:space-between}.title h1{margin:0;font-size:clamp(22px,4vw,34px)}.title p,.muted{color:var(--muted);font-size:12px}.tabs{margin:14px 0}.tabs button.active{background:var(--soft);border-color:#ddb8c8;color:#8a4263}.panel{display:none}.panel.active{display:block}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}.metric span{font-size:12px;color:var(--muted)}.metric b{display:block;font-size:25px;margin-top:6px}.today-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.task{border:1px solid var(--line);border-radius:12px;padding:11px;margin-bottom:8px}.toolbar{display:grid;grid-template-columns:1fr 180px 180px;gap:10px;margin-bottom:12px}.table-wrap{overflow:auto;max-height:580px}table{width:100%;border-collapse:collapse}th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}th{font-size:11px;color:var(--muted);position:sticky;top:0;background:#fff;z-index:2}.tag{display:inline-block;padding:3px 7px;border-radius:999px;font-size:11px;background:#f7eef2;border:1px solid var(--line);white-space:nowrap}.tag.master{background:#fff8e9;color:#7d6334}.tag.live{background:#eef6ee;color:#4d6f4a}.tag.warn{background:#fff6ea;color:#8a632e}.series-grid,.asset-grid,.weekly-grid,.template-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.empty{text-align:center;padding:28px;color:var(--muted)}dialog{border:none;border-radius:18px;max-width:840px;width:calc(100% - 20px);padding:0;box-shadow:0 28px 80px rgba(42,22,32,.25)}dialog::backdrop{background:rgba(40,23,31,.35)}.modal{padding:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}label{font-size:12px;color:var(--muted);display:block;margin-bottom:5px;font-weight:700}.footer-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}.editor-wrap{display:grid;grid-template-columns:310px 1fr 300px;gap:12px;align-items:start}.editor-side{position:sticky;top:8px}.stage-shell{display:flex;justify-content:center;align-items:flex-start;min-height:620px;overflow:auto;background:#f2edf0;border-radius:16px;padding:18px}.stage{position:relative;background:#fff;box-shadow:0 12px 32px rgba(50,30,40,.14);overflow:hidden;touch-action:none;transform-origin:top center}.layer{position:absolute;user-select:none;touch-action:none;cursor:move}.layer.selected{outline:2px solid var(--accent);outline-offset:2px}.layer img{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none}.text-layer{white-space:pre-wrap;line-height:1.35;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px;overflow:hidden}.layer-list{display:grid;gap:6px;max-height:220px;overflow:auto}.layer-row{border:1px solid var(--line);border-radius:9px;padding:7px;font-size:12px;display:flex;justify-content:space-between;gap:6px;align-items:center}.audit{display:grid;gap:7px}.audit-item{padding:8px;border-radius:9px;border:1px solid var(--line);font-size:12px}.audit-item.ok{background:#eef6ee;color:#4d6f4a}.audit-item.ng{background:#fff0f1;color:#8b444d}.preview{aspect-ratio:4/5;background:#f3edf0;border-radius:10px;overflow:hidden;display:grid;place-items:center;color:var(--muted);font-size:12px}.asset-thumb{height:130px;background:#f4eef1;border-radius:10px;display:grid;place-items:center;overflow:hidden;margin-bottom:9px}.asset-thumb img{width:100%;height:100%;object-fit:contain}.tiny{font-size:11px}.brand{text-align:center;color:var(--muted);font-size:11px;margin:16px}.subtabs{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.subtabs button.active{background:var(--soft)}
+@media(max-width:980px){.editor-wrap{grid-template-columns:1fr}.editor-side{position:static}.metrics{grid-template-columns:repeat(2,1fr)}.today-grid,.series-grid,.asset-grid,.weekly-grid,.template-grid{grid-template-columns:1fr}.toolbar{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.stage-shell{min-height:450px}}
+
+/* ===== Version 4 PWA / Mobile ===== */
+:root{--safe-bottom:env(safe-area-inset-bottom,0px)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100dvh}
+button,.btn,input,select,textarea{min-height:44px}
+button,.btn{-webkit-tap-highlight-color:transparent}
+.tabs{overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:0 0 auto;white-space:nowrap}
+.pwa-banner{display:none;margin:10px 0 14px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow);gap:10px;align-items:center;justify-content:space-between}
+.pwa-banner.show{display:flex}
+.pwa-banner .pwa-copy{min-width:0}
+.pwa-banner strong{display:block;font-size:13px}
+.pwa-banner span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.offline-badge{display:none;position:fixed;right:12px;bottom:calc(12px + var(--safe-bottom));z-index:9999;background:#3d3137;color:#fff;border-radius:999px;padding:8px 11px;font-size:11px;box-shadow:var(--shadow)}
+.offline-badge.show{display:block}
+dialog .modal{max-height:90dvh;overflow:auto}
+@media(max-width:720px){
+  .shell{padding:10px 10px calc(18px + var(--safe-bottom))}
+  .top{align-items:flex-start}
+  .top .actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  .top .actions .primary{grid-column:1/-1}
+  .title h1{font-size:24px;line-height:1.25}
+  .title p{font-size:11px}
+  .tabs{
+    position:sticky;top:0;z-index:50;background:rgba(255,248,251,.96);
+    margin:10px -10px 14px;padding:8px 10px;backdrop-filter:blur(10px);
+    border-top:1px solid rgba(234,221,227,.5);border-bottom:1px solid rgba(234,221,227,.8)
+  }
+  .tabs button{min-height:42px;padding:8px 12px}
+  .metrics{grid-template-columns:1fr 1fr;gap:8px}
+  .metric{padding:13px}.metric b{font-size:22px}
+  .card{padding:13px;border-radius:14px}
+  .section-title{align-items:flex-start}
+  .section-title h2{font-size:20px;margin:4px 0}
+  .toolbar{grid-template-columns:1fr;gap:8px}
+  .series-grid,.asset-grid,.weekly-grid,.template-grid,.today-grid{grid-template-columns:1fr}
+  .table-wrap{overflow:visible;max-height:none}
+  #items table,#items tbody,#items tr,#items td,
+  #ads table,#ads tbody,#ads tr,#ads td{display:block;width:100%}
+  #items thead,#ads thead{display:none}
+  #items tr,#ads tr{
+    margin:0 0 12px;border:1px solid var(--line);border-radius:14px;
+    background:#fff;box-shadow:var(--shadow);overflow:hidden;padding:6px 12px
+  }
+  #items td,#ads td{
+    display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;
+    padding:10px 2px;border-bottom:1px solid #f3e9ee;align-items:start
+  }
+  #items td:last-child,#ads td:last-child{border-bottom:none}
+  #items td::before,#ads td::before{font-size:11px;color:var(--muted);font-weight:700}
+  #items td:nth-child(1)::before{content:"商品"}
+  #items td:nth-child(2)::before{content:"種類 / 状態"}
+  #items td:nth-child(3)::before{content:"価格"}
+  #items td:nth-child(4)::before{content:"購入URL"}
+  #items td:nth-child(5)::before{content:"広告"}
+  #items td:nth-child(6)::before{content:"月間売上"}
+  #items td:nth-child(7)::before{content:"操作"}
+  #ads td:nth-child(1)::before{content:"商品"}
+  #ads td:nth-child(2)::before{content:"サイズ"}
+  #ads td:nth-child(3)::before{content:"状態"}
+  #ads td:nth-child(4)::before{content:"MASTER監査"}
+  #ads td:nth-child(5)::before{content:"Instagram"}
+  #ads td:nth-child(6)::before{content:"ハイライト"}
+  #ads td:nth-child(7)::before{content:"Threads"}
+  #ads td:nth-child(8)::before{content:"操作"}
+  #items td .row,#ads td .row{flex-wrap:wrap}
+  dialog{width:calc(100% - 16px);max-width:none;margin:auto;border-radius:18px}
+  dialog .modal{padding:14px 14px calc(10px + var(--safe-bottom));max-height:92dvh}
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .footer-actions{
+    position:sticky;bottom:0;background:rgba(255,255,255,.96);
+    margin:14px -14px -14px;padding:10px 14px calc(10px + var(--safe-bottom));
+    border-top:1px solid var(--line);z-index:4
+  }
+  .footer-actions button{flex:1}
+  .editor-wrap{grid-template-columns:1fr}
+  .editor-side{position:static}
+  .stage-shell{min-height:340px;padding:8px;overflow:hidden}
+  .stage{max-width:100%;touch-action:none}
+  #generator .actions{width:100%;display:grid;grid-template-columns:1fr 1fr}
+  #generator .actions .primary{grid-column:1/-1}
+  .layer-row{min-height:44px}
+  input[type="range"]{min-height:32px}
+}
+@media(max-width:380px){
+  .metrics{grid-template-columns:1fr}
+  #items td,#ads td{grid-template-columns:80px minmax(0,1fr)}
+  .top .actions{grid-template-columns:1fr}
+  .top .actions .primary{grid-column:auto}
+}
+@media(display-mode:standalone){
+  .pwa-banner{display:none!important}
+  .shell{padding-top:calc(12px + env(safe-area-inset-top,0px))}
+}
+
+</style>
+</head>
+<body><div class="shell">
+<header class="top"><div class="title"><h1>🌹 魔女chichi Brand OS</h1><p>LINE & Instagram Version 3.4｜正式素材を守る広告ジェネレーター搭載</p></div><div class="actions"><button id="exportBtn">JSON書き出し</button><label class="btn" for="importFile">JSON読込</label><input id="importFile" type="file" accept=".json" hidden><button class="primary" id="newItemBtn">＋ LINEアイテム</button></div></header>
+<div id="pwaBanner" class="pwa-banner" role="status">
+  <div class="pwa-copy">
+    <strong>📱 ホーム画面に追加できます</strong>
+    <span id="pwaHelp">アプリのようにBrand OSを開けます。</span>
+  </div>
+  <div class="actions">
+    <button id="pwaInstallBtn" class="primary">追加</button>
+    <button id="pwaDismissBtn" aria-label="閉じる">閉じる</button>
+  </div>
+</div>
+<div id="offlineBadge" class="offline-badge">オフライン</div>
+
+<nav class="tabs"><button data-tab="today" class="active">TODAY</button><button data-tab="items">LINE ITEMS</button><button data-tab="ads">LINE ADS</button><button data-tab="weekly">INSTAGRAM WEEKLY</button><button data-tab="assets">ASSETS</button><button data-tab="generator">AD GENERATOR</button></nav>
+<section id="today" class="panel active"><div class="metrics"><div class="card metric"><span>LINEアイテム</span><b id="mItems">0</b></div><div class="card metric"><span>販売中</span><b id="mLive">0</b></div><div class="card metric"><span>広告完成</span><b id="mComplete">0</b></div><div class="card metric"><span>今週のInstagram</span><b id="mWeekly">未設定</b></div></div><div class="today-grid"><div class="card"><div class="section-title"><h2>今日やること</h2><span class="muted">未完成広告・週1投稿から自動抽出</span></div><div id="todayTasks"></div></div><div class="card"><div class="section-title"><h2>シリーズ現在地</h2></div><div id="todaySeries"></div></div></div></section>
+<section id="items" class="panel"><div class="card"><div class="section-title"><h2>LINE ITEMS</h2><button class="primary" id="addItemBtn">＋ アイテム</button></div><div class="toolbar"><input id="q" placeholder="商品名・シリーズ名で検索"><select id="typeFilter"><option value="">すべての種類</option><option>LINEスタンプ</option><option>LINE絵文字</option><option>LINE着せかえ</option></select><select id="statusFilter"><option value="">すべての状態</option><option>制作中</option><option>申請準備</option><option>審査中</option><option>販売中</option><option>販売停止</option></select></div><div id="seriesGrid" class="series-grid" style="margin-bottom:14px"></div><div class="table-wrap"><table><thead><tr><th>商品</th><th>種類 / 状態</th><th>価格</th><th>購入URL</th><th>広告</th><th>月間売上</th><th>操作</th></tr></thead><tbody id="itemsBody"></tbody></table></div></div></section>
+<section id="ads" class="panel"><div class="card"><div class="section-title"><div><h2>LINE ADS</h2><div class="muted">商品 × サイズごとに広告を管理</div></div><button class="primary" id="createAdBtn">＋ 広告を作成</button></div><div class="table-wrap"><table><thead><tr><th>商品</th><th>サイズ</th><th>状態</th><th>MASTER監査</th><th>Instagram</th><th>ハイライト</th><th>Threads</th><th>操作</th></tr></thead><tbody id="adsBody"></tbody></table></div></div></section>
+<section id="weekly" class="panel"><div class="card"><div class="section-title"><div><h2>INSTAGRAM WEEKLY</h2><div class="muted">週1ブランド投稿。商品広告とは別レーン</div></div><button class="primary" id="addWeeklyBtn">＋ 週1投稿</button></div><div id="weeklyGrid" class="weekly-grid"></div></div></section>
+<section id="assets" class="panel"><div class="card"><div class="section-title"><div><h2>ASSETS</h2><div class="muted">MASTER / 使用中 / 旧版 / 使用禁止。画像本体はブラウザ内IndexedDBへ保存</div></div><button class="primary" id="addAssetBtn">＋ 資産</button></div><div id="assetGrid" class="asset-grid"></div></div></section>
+<section id="generator" class="panel"><div class="card"><div class="section-title"><div><h2>Instagram LINEアイテム広告ジェネレーター</h2><div class="muted">AI再生成なし。正式素材の配置・合成のみ</div></div><div class="actions"><button id="newAdDraftBtn">新規広告</button><button id="saveTemplateBtn">テンプレート保存</button><button class="primary" id="saveAdDraftBtn">広告保存</button></div></div><div class="editor-wrap">
+<div class="card editor-side"><label>商品</label><select id="gItem"></select><label style="margin-top:10px">正式サイズ</label><select id="gFormat"><option value="4:5">4:5｜1080 × 1350</option><option value="9:16">9:16｜1080 × 1920</option></select><label style="margin-top:10px">広告ステータス</label><select id="gStatus"><option>未着手</option><option>制作中</option><option>確認待ち</option><option>完成</option><option>投稿済み</option></select><hr style="border:none;border-top:1px solid var(--line);margin:14px 0"><label>正式素材を追加</label><select id="gAsset"></select><button id="addAssetLayerBtn" style="width:100%;margin-top:6px">＋ 選択素材を配置</button><label style="margin-top:12px">テキストレイヤー</label><input id="gText" placeholder="商品名・価格・CTAなど"><button id="addTextLayerBtn" style="width:100%;margin-top:6px">＋ テキストを配置</button><div class="muted" style="margin-top:8px">CTA例：ご購入はプロフィールリンクから🌹</div><hr style="border:none;border-top:1px solid var(--line);margin:14px 0"><label>保存テンプレート</label><select id="templateSelect"></select><div class="row"><button id="loadTemplateBtn">読込</button><button id="duplicateTemplateBtn">複製</button></div></div>
+<div class="stage-shell"><div id="stage" class="stage"></div></div>
+<div class="card editor-side"><div class="section-title"><h3 style="margin:0">選択レイヤー</h3><button class="danger" id="deleteLayerBtn">削除</button></div><div id="noSelection" class="muted">キャンバス上のレイヤーを選択してください。</div><div id="layerControls" hidden><label>X位置</label><input id="lcX" type="range" min="0" max="1000"><label>Y位置</label><input id="lcY" type="range" min="0" max="1600"><label>幅</label><input id="lcW" type="range" min="50" max="1080"><label>高さ</label><input id="lcH" type="range" min="30" max="1920"><div id="textControls" hidden><label>文字サイズ</label><input id="lcFont" type="range" min="12" max="160"><label>文字色</label><input id="lcColor" type="color" value="#3d3137"></div><div class="row" style="margin-top:8px"><button id="centerLayerBtn">中央</button><button id="frontLayerBtn">前面</button><button id="backLayerBtn">背面</button></div></div><hr style="border:none;border-top:1px solid var(--line);margin:14px 0"><label>レイヤー</label><div id="layerList" class="layer-list"></div><hr style="border:none;border-top:1px solid var(--line);margin:14px 0"><label>ブランド監査</label><div id="audit" class="audit"></div><button class="primary" id="exportPngBtn" style="width:100%;margin-top:10px">PNGを書き出す</button></div>
+</div><div style="margin-top:14px"><div class="section-title"><h3>広告テンプレート</h3><span class="muted">横展開用</span></div><div id="templateGrid" class="template-grid"></div></div></div></section>
+<div class="brand">魂の翻訳者｜魔女chichi　Brand Operations OS</div></div>
+
+<dialog id="itemDlg"><form method="dialog" class="modal"><h2>LINEアイテム登録</h2><input type="hidden" id="itemId"><div class="form-grid"><div><label>商品名</label><input id="itemName"></div><div><label>シリーズ</label><input id="itemSeries"></div><div><label>種類</label><select id="itemType"><option>LINEスタンプ</option><option>LINE絵文字</option><option>LINE着せかえ</option></select></div><div><label>主ステータス</label><select id="itemStatus"><option>制作中</option><option>申請準備</option><option>審査中</option><option>審査待ち</option><option>販売中</option><option>販売停止</option></select></div><div><label>追加ステータス</label><select id="itemReviewStatus"><option value="">なし</option><option>審査待ち</option><option>審査中</option></select></div><div><label>参加情報</label><input id="itemParticipation" placeholder="例：参加中（2027/03/01〜）"></div><div><label>販売価格（円）</label><input id="itemPrice" type="number" min="0"></div><div><label>月間売上（円）</label><input id="itemSales" type="number" min="0"></div><div class="full"><label>購入URL</label><input id="itemUrl" type="url"></div><div class="full"><label>メモ</label><textarea id="itemMemo"></textarea></div></div><div class="footer-actions"><button value="cancel">キャンセル</button><button type="button" class="primary" id="saveItemBtn">保存</button></div></form></dialog>
+<dialog id="assetDlg"><form method="dialog" class="modal"><h2>ブランド資産登録</h2><input type="hidden" id="assetId"><div class="form-grid"><div><label>資産名</label><input id="assetName"></div><div><label>分類</label><select id="assetType"><option>正式原画</option><option>正式キャラクター画像</option><option>LINE商品画面</option><option>広告背景</option><option>ロゴ</option><option>装飾</option><option>その他MASTER素材</option></select></div><div><label>状態</label><select id="assetStatus"><option>MASTER</option><option>使用中</option><option>旧版</option><option>使用禁止</option></select></div><div><label>関連シリーズ</label><input id="assetSeries"></div><div class="full"><label>画像ファイル</label><input id="assetFile" type="file" accept="image/png,image/jpeg,image/webp"></div><div class="full"><label>保管場所・識別名</label><input id="assetLocation"></div><div class="full"><label>変更禁止事項・メモ</label><textarea id="assetMemo"></textarea></div></div><div class="footer-actions"><button value="cancel">キャンセル</button><button type="button" class="primary" id="saveAssetBtn">保存</button></div></form></dialog>
+<dialog id="weeklyDlg"><form method="dialog" class="modal"><h2>Instagram週1投稿</h2><input type="hidden" id="weeklyId"><div class="form-grid"><div><label>投稿日</label><input id="weeklyDate" type="date"></div><div><label>状態</label><select id="weeklyStatus"><option>企画中</option><option>制作中</option><option>完成</option><option>予約済み</option><option>投稿済み</option></select></div><div class="full"><label>テーマ</label><input id="weeklyTheme"></div><div class="full"><label>メモ</label><textarea id="weeklyMemo"></textarea></div><div class="full"><label><input id="weeklyThreads" type="checkbox" style="width:auto"> Threads連携済み</label></div></div><div class="footer-actions"><button value="cancel">キャンセル</button><button type="button" class="primary" id="saveWeeklyBtn">保存</button></div></form></dialog>
+<script>
+
+const StorageLayer={
+  get(key){try{return localStorage.getItem(key)}catch(e){return null}},
+  set(key,value){try{localStorage.setItem(key,value);return true}catch(e){console.warn('Storage write failed',e);return false}},
+  remove(key){try{localStorage.removeItem(key);return true}catch(e){return false}}
+};
+const V1='majochichiLineItemsV1',V2='majochichiBrandOSV2',V3='majochichiBrandOSV3';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],uid=()=>crypto.randomUUID(),esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m])),yen=n=>'¥'+Number(n||0).toLocaleString('ja-JP');
+function seed(){const items=[{id:uid(),name:'まじょさんの白猫。',series:'まじょさんの白猫。',type:'LINEスタンプ',status:'販売中',reviewStatus:'審査待ち',participation:'',price:190,sales:0,url:'',memo:'LINE Creators Market 現在地：販売中／審査待ち表示あり'},{id:uid(),name:'いつもの白猫。',series:'いつもの白猫。',type:'LINEスタンプ',status:'販売中',reviewStatus:'',participation:'',price:190,sales:0,url:'',memo:'LINE Creators Market 現在地：販売中'},{id:uid(),name:'リトル魔女chichi',series:'リトル魔女chichi',type:'LINEスタンプ',status:'販売中',reviewStatus:'審査待ち',participation:'参加中（2027/03/01〜）',price:190,sales:0,url:'',memo:'LINE Creators Market 現在地：販売中／審査待ち／参加中（2027/03/01〜）'},{id:uid(),name:'まじょの白猫。絵文字',series:'まじょの白猫。',type:'LINE絵文字',status:'審査待ち',reviewStatus:'',participation:'',price:190,sales:0,url:'',memo:'LINE Creators Market 現在地：審査待ち'},{id:uid(),name:'Luz y Amor - 月と薔薇の魔法世界',series:'Luz y Amor',type:'LINE着せかえ',status:'販売中',reviewStatus:'',participation:'',price:370,sales:0,url:'',memo:'LINE Creators Market 現在地：販売中'}];return{items,ads:[],weekly:[],assets:[{id:uid(),name:'リトル魔女chichi 正式原画',type:'正式原画',status:'MASTER',series:'リトル魔女chichi',location:'画像未登録',memo:'人物・構図の再生成禁止',hasBlob:false},{id:uid(),name:'Luz y Amor 正式マスター原画',type:'正式原画',status:'MASTER',series:'Luz y Amor',location:'画像未登録',memo:'原画そのものを使用',hasBlob:false},{id:uid(),name:'いつもの白猫。公式顔文字',type:'その他MASTER素材',status:'MASTER',series:'いつもの白猫。',location:'（^ ｰ ﻌ ｰ ^）',memo:'一般的な白猫イラストへ置換禁止',hasBlob:false}],templates:[]}}
+function migrate(){try{const v3=StorageLayer.get(V3);if(v3)return normalize(JSON.parse(v3));const v2=StorageLayer.get(V2);if(v2){const o=JSON.parse(v2),d=seed();d.items=o.items||d.items;d.weekly=o.weekly||[];d.assets=(o.assets||[]).map(a=>({...a,status:a.status==='MASTER / 正式'?'MASTER':a.status,hasBlob:false}));d.ads=(o.ads||[]).flatMap(a=>{const out=[];if(a.ad45)out.push(makeAd(a.itemId,'4:5',a.ig?'投稿済み':'完成'));if(a.ad916)out.push(makeAd(a.itemId,'9:16',a.ig?'投稿済み':'完成'));return out});return normalize(d)}const v1=StorageLayer.get(V1);if(v1){const d=seed();d.items=JSON.parse(v1).map(x=>({id:x.id||uid(),name:x.name,series:x.series||x.name,type:x.type,status:x.status,price:x.price||0,sales:x.sales||0,url:x.url||'',memo:x.memo||''}));return d}}catch(e){}return seed()}
+
+const CANONICAL_LINE_ITEMS = [
+  {name:'まじょさんの白猫。',series:'まじょさんの白猫。',type:'LINEスタンプ',price:190,status:'販売中',statuses:['販売中','審査待ち']},
+  {name:'いつもの白猫。',series:'いつもの白猫。',type:'LINEスタンプ',price:190,status:'販売中',statuses:['販売中']},
+  {name:'リトル魔女chichi',series:'リトル魔女chichi',type:'LINEスタンプ',price:190,status:'販売中',statuses:['販売中','審査待ち','参加中'],campaign:'2027/03/01〜'},
+  {name:'まじょの白猫。絵文字',series:'まじょの白猫。',type:'LINE絵文字',price:190,status:'審査待ち',statuses:['審査待ち']},
+  {name:'Luz y Amor - 月と薔薇の魔法世界',series:'Luz y Amor',type:'LINE着せかえ',price:370,status:'販売中',statuses:['販売中']}
+];
+
+function canonicalizeLineItems(d){
+  d.items ??= [];
+  const aliases = {
+    'リトル魔女chichi スタンプ':'リトル魔女chichi',
+    'まじょの白猫。':'まじょの白猫。絵文字'
+  };
+
+  const used = new Set();
+  const next = CANONICAL_LINE_ITEMS.map(c=>{
+    let found = d.items.find(i=>{
+      const n = aliases[i.name] || i.name;
+      return !used.has(i.id) && n === c.name;
+    });
+    if(found) used.add(found.id);
+
+    const base = found ? {...found} : {
+      id: uid(),
+      sales:0,
+      url:'',
+      memo:'',
+      igPost:false,
+      highlight:false,
+      threads:false,
+      profileLink:false,
+      storeReady:false,
+      assetsReady:false
+    };
+
+    return {
+      ...base,
+      name:c.name,
+      series:c.series,
+      type:c.type,
+      price:c.price,
+      status:c.status,
+      statuses:[...c.statuses],
+      campaign:c.campaign || base.campaign || ''
+    };
+  });
+
+  // Preserve references by mapping removed/duplicate item ids to canonical item ids where possible.
+  const idMap = {};
+  d.items.forEach(old=>{
+    const oldName = aliases[old.name] || old.name;
+    const target = next.find(n=>n.name===oldName);
+    if(target && old.id && old.id !== target.id) idMap[old.id]=target.id;
+  });
+
+  ['ads','templates'].forEach(key=>{
+    (d[key]||[]).forEach(obj=>{
+      if(obj.itemId && idMap[obj.itemId]) obj.itemId=idMap[obj.itemId];
+    });
+  });
+
+  // Data correction:
+  // 「まじょの白猫。絵文字」は旧スタンプ由来の購入URLを引き継がない。
+  const emojiItem = next.find(n=>n.name==='まじょの白猫。絵文字');
+  if(emojiItem){
+    emojiItem.url = '';
+  }
+
+  d.items = next;
+  return d;
+}
+
+function normalize(d){d.templates??=[];d.ads??=[];d.assets??=[];d.weekly??=[];d.items??=[];return canonicalizeLineItems(d)}
+let data=migrate();
+function persist(){StorageLayer.set(V3,JSON.stringify(data));renderAll()}
+function makeAd(itemId,format='4:5',status='未着手'){return{id:uid(),itemId,format,status,ig:false,highlight:false,threads:false,layers:[],audit:{},updatedAt:new Date().toISOString()}}
+function itemFor(id){return data.items.find(i=>i.id===id)}function assetFor(id){return data.assets.find(a=>a.id===id)}function formatSize(f){return f==='9:16'?{w:1080,h:1920}:{w:1080,h:1350}}
+
+// IndexedDB image blobs
+const DB='majochichiBrandAssetsDB';let dbp;function openDB(){if(dbp)return dbp;dbp=new Promise((res,rej)=>{const r=indexedDB.open(DB,1);r.onupgradeneeded=()=>r.result.createObjectStore('blobs');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});return dbp}async function putBlob(id,blob){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('blobs','readwrite');tx.objectStore('blobs').put(blob,id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}async function getBlob(id){const db=await openDB();return new Promise((res,rej)=>{const r=db.transaction('blobs').objectStore('blobs').get(id);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}async function delBlob(id){const db=await openDB();return new Promise((res,rej)=>{const tx=db.transaction('blobs','readwrite');tx.objectStore('blobs').delete(id);tx.oncomplete=res;tx.onerror=()=>rej(tx.error)})}
+const blobUrls=new Map();async function assetUrl(id){if(blobUrls.has(id))return blobUrls.get(id);const b=await getBlob(id);if(!b)return'';const u=URL.createObjectURL(b);blobUrls.set(id,u);return u}
+
+function showTab(id){$$('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='generator')refreshGenerator()}
+function tagClass(s){return ['販売中','投稿済み'].includes(s)?'live':['完成','確認待ち','審査中','申請準備','予約済み'].includes(s)?'warn':''}
+function renderAll(){renderToday();renderItems();renderAds();renderWeekly();renderAssets();fillGeneratorSelects();renderTemplates()}
+function renderToday(){const complete=data.ads.filter(a=>['完成','投稿済み'].includes(a.status)).length;$('#mItems').textContent=data.items.length;$('#mLive').textContent=data.items.filter(i=>i.status==='販売中').length;$('#mComplete').textContent=complete;const w=data.weekly.find(x=>x.status!=='投稿済み');$('#mWeekly').textContent=w?.status||'未設定';let tasks=[];for(const i of data.items){if(i.status==='販売中'){for(const f of ['4:5','9:16']){const a=data.ads.find(x=>x.itemId===i.id&&x.format===f);if(!a)tasks.push([i.name,`${f}広告が未作成`,'LINE ADS']);else if(!['完成','投稿済み'].includes(a.status))tasks.push([i.name,`${f}広告を完成する｜${a.status}`,'LINE ADS'])}}}for(const w of data.weekly.filter(x=>x.status!=='投稿済み'))tasks.unshift([w.theme||'Instagram Weekly',`${w.status}${w.date?' / '+w.date:''}`,'INSTAGRAM WEEKLY']);if(!data.weekly.length)tasks.unshift(['Instagram Weekly','今週の週1ブランド投稿を登録','INSTAGRAM WEEKLY']);$('#todayTasks').innerHTML=tasks.length?tasks.slice(0,12).map(t=>`<div class="task"><b>${esc(t[0])}</b><div>${esc(t[1])}</div><div class="muted">${esc(t[2])}</div></div>`).join(''):'<div class="empty">未完了タスクはありません。</div>';const g={};data.items.forEach(i=>(g[i.series||'未分類']??=[]).push(i));$('#todaySeries').innerHTML=Object.entries(g).map(([s,a])=>`<div class="task"><b>${esc(s)}</b><div class="muted">${a.length}商品 / 販売中 ${a.filter(x=>x.status==='販売中').length}</div></div>`).join('')}
+function renderItems(){const g={};data.items.forEach(i=>(g[i.series||'未分類']??=[]).push(i));$('#seriesGrid').innerHTML=Object.entries(g).map(([s,a])=>`<div class="card"><h3>${esc(s)}</h3><div class="muted">${a.length}アイテム</div><ul>${a.map(i=>`<li>${esc(i.name)} <span class="tag ${tagClass(i.status)}">${esc(i.status)}</span>${i.reviewStatus?` <span class="tag warn">${esc(i.reviewStatus)}</span>`:''}${i.participation?`<div class="muted">${esc(i.participation)}</div>`:''}</li>`).join('')}</ul></div>`).join('');const q=$('#q').value.toLowerCase(),tf=$('#typeFilter').value,sf=$('#statusFilter').value;const rows=data.items.filter(i=>(!q||(i.name+' '+i.series).toLowerCase().includes(q))&&(!tf||i.type===tf)&&(!sf||i.status===sf));$('#itemsBody').innerHTML=rows.map(i=>{const ads=data.ads.filter(a=>a.itemId===i.id);return`<tr><td><b>${esc(i.name)}</b><div class="muted">${esc(i.series)}</div></td><td>${esc(i.type)}<br><span class="tag ${tagClass(i.status)}">${esc(i.status)}</span>${i.reviewStatus?` <span class="tag warn">${esc(i.reviewStatus)}</span>`:''}${i.participation?`<div class="muted">${esc(i.participation)}</div>`:''}</td><td>${yen(i.price)}</td><td>${i.url?`<a href="${esc(i.url)}" target="_blank">購入ページ ↗</a>`:'—'}</td><td>${ads.map(a=>`${a.format} ${a.status}`).join('<br>')||'未作成'}</td><td>${yen(i.sales)}</td><td><button data-ie="${i.id}">編集</button> <button class="danger" data-idel="${i.id}">削除</button></td></tr>`}).join('');$$('[data-ie]').forEach(b=>b.onclick=()=>openItem(b.dataset.ie));$$('[data-idel]').forEach(b=>b.onclick=()=>{if(confirm('このアイテムを削除しますか？')){data.items=data.items.filter(i=>i.id!==b.dataset.idel);data.ads=data.ads.filter(a=>a.itemId!==b.dataset.idel);persist()}})}
+function auditAd(ad){const item=itemFor(ad.itemId),sz=formatSize(ad.format),imageLayers=ad.layers.filter(l=>l.type==='image'),usedAssets=imageLayers.map(l=>assetFor(l.assetId)).filter(Boolean),hasMaster=usedAssets.some(a=>a.status==='MASTER'),noForbidden=usedAssets.every(a=>a.status!=='使用禁止'),hasName=ad.layers.some(l=>l.type==='text'&&l.text?.includes(item?.name||'')),hasPrice=ad.layers.some(l=>l.type==='text'&&String(l.text||'').includes(String(item?.price||''))),hasCTA=ad.layers.some(l=>l.type==='text'&&/購入|プロフィールリンク|LINE STORE/.test(l.text||'')),hasUrl=!!item?.url;return{master:hasMaster,forbidden:noForbidden,size:sz.w===1080&&[1350,1920].includes(sz.h),name:hasName,price:hasPrice||Number(item?.price||0)===0,cta:hasCTA,link:hasUrl}}
+function renderAds(){$('#adsBody').innerHTML=data.ads.length?data.ads.map(a=>{const i=itemFor(a.itemId),au=auditAd(a),ok=Object.values(au).every(Boolean);return`<tr><td><b>${esc(i?.name||'削除済み')}</b><div class="muted">${esc(i?.series||'')}</div></td><td>${a.format}</td><td><span class="tag ${tagClass(a.status)}">${a.status}</span></td><td>${ok?'✓ 合格':'要確認'}</td><td>${a.ig?'✓':'—'}</td><td>${a.highlight?'✓':'—'}</td><td>${a.threads?'✓':'—'}</td><td><button data-editad="${a.id}">広告を開く</button> <button class="danger" data-delad="${a.id}">削除</button></td></tr>`}).join(''):'<tr><td colspan="8" class="empty">広告はまだありません。</td></tr>';$$('[data-editad]').forEach(b=>b.onclick=()=>loadAdIntoEditor(b.dataset.editad));$$('[data-delad]').forEach(b=>b.onclick=()=>{if(confirm('広告を削除しますか？')){data.ads=data.ads.filter(a=>a.id!==b.dataset.delad);persist()}})}
+function renderWeekly(){$('#weeklyGrid').innerHTML=data.weekly.length?data.weekly.map(w=>`<div class="card"><div class="section-title"><h3>${esc(w.theme||'未設定')}</h3><span class="tag ${tagClass(w.status)}">${esc(w.status)}</span></div><div class="muted">${esc(w.date||'日付未設定')}</div><p>${esc(w.memo||'')}</p><div class="muted">Threads ${w.threads?'✓':'—'}</div><button data-we="${w.id}">編集</button> <button class="danger" data-wdel="${w.id}">削除</button></div>`).join(''):'<div class="empty">週1投稿がまだありません。</div>';$$('[data-we]').forEach(b=>b.onclick=()=>openWeekly(b.dataset.we));$$('[data-wdel]').forEach(b=>b.onclick=()=>{data.weekly=data.weekly.filter(w=>w.id!==b.dataset.wdel);persist()})}
+async function renderAssets(){const html=[];for(const a of data.assets){const u=a.hasBlob?await assetUrl(a.id):'';html.push(`<div class="card"><div class="asset-thumb">${u?`<img src="${u}">`:'画像未登録'}</div><div class="section-title"><h3>${esc(a.name)}</h3><span class="tag ${a.status==='MASTER'?'master':''}">${esc(a.status)}</span></div><div class="muted">${esc(a.type)} / ${esc(a.series||'未分類')}</div><p class="tiny">${esc(a.memo||'')}</p><div class="row"><button data-ase="${a.id}">編集</button><button class="danger" data-asdel="${a.id}">削除</button></div></div>`)}$('#assetGrid').innerHTML=html.join('')||'<div class="empty">ブランド資産がありません。</div>';$$('[data-ase]').forEach(b=>b.onclick=()=>openAsset(b.dataset.ase));$$('[data-asdel]').forEach(b=>b.onclick=async()=>{if(confirm('この資産を削除しますか？')){await delBlob(b.dataset.asdel);data.assets=data.assets.filter(a=>a.id!==b.dataset.asdel);persist()}})}
+function fillGeneratorSelects(){$('#gItem').innerHTML=data.items.map(i=>`<option value="${i.id}">${esc(i.name)}</option>`).join('');const usable=data.assets.filter(a=>a.status!=='使用禁止'&&a.hasBlob);$('#gAsset').innerHTML=usable.map(a=>`<option value="${a.id}">${esc(a.name)}｜${esc(a.status)}</option>`).join('')||'<option value="">画像登録済み素材なし</option>';$('#templateSelect').innerHTML=data.templates.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('')||'<option value="">テンプレートなし</option>'}
+function renderTemplates(){$('#templateGrid').innerHTML=data.templates.length?data.templates.map(t=>`<div class="card"><h3>${esc(t.name)}</h3><div class="muted">${esc(t.format)} / ${t.layers.length}レイヤー</div><div class="row" style="margin-top:8px"><button data-tload="${t.id}">読込</button><button class="danger" data-tdel="${t.id}">削除</button></div></div>`).join(''):'<div class="empty">テンプレートはまだありません。</div>';$$('[data-tload]').forEach(b=>b.onclick=()=>loadTemplate(b.dataset.tload));$$('[data-tdel]').forEach(b=>b.onclick=()=>{data.templates=data.templates.filter(t=>t.id!==b.dataset.tdel);persist()})}
+
+// dialogs
+function openItem(id=''){const x=itemFor(id);$('#itemId').value=x?.id||'';$('#itemName').value=x?.name||'';$('#itemSeries').value=x?.series||'';$('#itemType').value=x?.type||'LINEスタンプ';$('#itemStatus').value=x?.status||'制作中';$('#itemReviewStatus').value=x?.reviewStatus||'';$('#itemParticipation').value=x?.participation||'';$('#itemPrice').value=x?.price||0;$('#itemSales').value=x?.sales||0;$('#itemUrl').value=x?.url||'';$('#itemMemo').value=x?.memo||'';$('#itemDlg').showModal()}function saveItem(){const name=$('#itemName').value.trim();if(!name)return alert('商品名を入力してください。');const id=$('#itemId').value||uid(),x={id,name,series:$('#itemSeries').value.trim()||name,type:$('#itemType').value,status:$('#itemStatus').value,reviewStatus:$('#itemReviewStatus').value,participation:$('#itemParticipation').value.trim(),price:Number($('#itemPrice').value||0),sales:Number($('#itemSales').value||0),url:$('#itemUrl').value.trim(),memo:$('#itemMemo').value.trim()};const n=data.items.findIndex(i=>i.id===id);n>=0?data.items[n]=x:data.items.unshift(x);persist();$('#itemDlg').close()}
+function openAsset(id=''){const a=assetFor(id);$('#assetId').value=a?.id||'';$('#assetName').value=a?.name||'';$('#assetType').value=a?.type||'正式原画';$('#assetStatus').value=a?.status||'MASTER';$('#assetSeries').value=a?.series||'';$('#assetLocation').value=a?.location||'';$('#assetMemo').value=a?.memo||'';$('#assetFile').value='';$('#assetDlg').showModal()}async function saveAsset(){const name=$('#assetName').value.trim();if(!name)return alert('資産名を入力してください。');const id=$('#assetId').value||uid(),old=assetFor(id),file=$('#assetFile').files[0];if(file)await putBlob(id,file);const a={id,name,type:$('#assetType').value,status:$('#assetStatus').value,series:$('#assetSeries').value.trim(),location:$('#assetLocation').value.trim()||(file?.name||old?.location||''),memo:$('#assetMemo').value.trim(),hasBlob:!!file||!!old?.hasBlob};const n=data.assets.findIndex(x=>x.id===id);n>=0?data.assets[n]=a:data.assets.unshift(a);persist();$('#assetDlg').close()}
+function openWeekly(id=''){const w=data.weekly.find(x=>x.id===id);$('#weeklyId').value=w?.id||'';$('#weeklyDate').value=w?.date||'';$('#weeklyStatus').value=w?.status||'企画中';$('#weeklyTheme').value=w?.theme||'';$('#weeklyMemo').value=w?.memo||'';$('#weeklyThreads').checked=!!w?.threads;$('#weeklyDlg').showModal()}function saveWeekly(){const id=$('#weeklyId').value||uid(),w={id,date:$('#weeklyDate').value,status:$('#weeklyStatus').value,theme:$('#weeklyTheme').value.trim(),memo:$('#weeklyMemo').value.trim(),threads:$('#weeklyThreads').checked};const n=data.weekly.findIndex(x=>x.id===id);n>=0?data.weekly[n]=w:data.weekly.unshift(w);persist();$('#weeklyDlg').close()}
+
+// generator state and renderer
+let editor={ad:null,selected:null,scale:.36};function newEditorAd(){const itemId=$('#gItem').value||data.items[0]?.id;if(!itemId)return alert('先にLINEアイテムを登録してください。');editor.ad=makeAd(itemId,$('#gFormat').value||'4:5','未着手');editor.selected=null;syncEditorInputs();renderStage()}
+function syncEditorInputs(){if(!editor.ad)return;$('#gItem').value=editor.ad.itemId;$('#gFormat').value=editor.ad.format;$('#gStatus').value=editor.ad.status;updateStageSize();renderAudit()}
+function updateStageSize(){if(!editor.ad)return;const s=formatSize(editor.ad.format),maxW=Math.min(520,window.innerWidth-48);editor.scale=Math.min(maxW/s.w,.42);$('#stage').style.width=s.w*editor.scale+'px';$('#stage').style.height=s.h*editor.scale+'px'}
+async function renderStage(){const st=$('#stage');st.innerHTML='';if(!editor.ad)return;updateStageSize();const ordered=[...editor.ad.layers].sort((a,b)=>(a.z||0)-(b.z||0));for(const l of ordered){const d=document.createElement('div');d.className='layer '+(editor.selected===l.id?'selected':'');d.dataset.id=l.id;d.style.left=l.x*editor.scale+'px';d.style.top=l.y*editor.scale+'px';d.style.width=l.w*editor.scale+'px';d.style.height=l.h*editor.scale+'px';d.style.zIndex=l.z||0;if(l.type==='image'){const u=await assetUrl(l.assetId);d.innerHTML=u?`<img src="${u}">`:'<div class="muted">画像なし</div>'}else{d.classList.add('text-layer');d.textContent=l.text||'';d.style.fontSize=(l.fontSize||48)*editor.scale+'px';d.style.color=l.color||'#3d3137';d.style.fontWeight=l.bold?'700':'400'}d.onpointerdown=e=>startDrag(e,l.id);d.onclick=e=>{e.stopPropagation();selectLayer(l.id)};st.appendChild(d)}st.onclick=()=>selectLayer(null);renderLayerList();renderAudit()}
+function addAssetLayer(){const id=$('#gAsset').value,a=assetFor(id);if(!editor.ad)return newEditorAd();if(!a||a.status==='使用禁止')return alert('使用可能な正式素材を選択してください。');const s=formatSize(editor.ad.format);editor.ad.layers.push({id:uid(),type:'image',assetId:id,x:s.w*.15,y:s.h*.15,w:s.w*.7,h:s.h*.45,z:editor.ad.layers.length+1});editor.ad.status='制作中';$('#gStatus').value='制作中';renderStage()}
+function addTextLayer(){if(!editor.ad)return newEditorAd();const text=$('#gText').value.trim();if(!text)return alert('テキストを入力してください。');const s=formatSize(editor.ad.format);editor.ad.layers.push({id:uid(),type:'text',text,x:s.w*.1,y:s.h*.75,w:s.w*.8,h:120,z:editor.ad.layers.length+1,fontSize:48,color:'#3d3137'});editor.ad.status='制作中';$('#gStatus').value='制作中';$('#gText').value='';renderStage()}
+function layerById(id){return editor.ad?.layers.find(l=>l.id===id)}function selectLayer(id){editor.selected=id;const l=layerById(id);$('#noSelection').hidden=!!l;$('#layerControls').hidden=!l;if(l){const s=formatSize(editor.ad.format);$('#lcX').max=s.w;$('#lcY').max=s.h;$('#lcW').max=s.w;$('#lcH').max=s.h;$('#lcX').value=l.x;$('#lcY').value=l.y;$('#lcW').value=l.w;$('#lcH').value=l.h;$('#textControls').hidden=l.type!=='text';if(l.type==='text'){$('#lcFont').value=l.fontSize||48;$('#lcColor').value=l.color||'#3d3137'}}renderStage()}
+function bindRange(id,key){$(id).oninput=e=>{const l=layerById(editor.selected);if(!l)return;l[key]=Number(e.target.value);renderStage()}}bindRange('#lcX','x');bindRange('#lcY','y');bindRange('#lcW','w');bindRange('#lcH','h');bindRange('#lcFont','fontSize');$('#lcColor').oninput=e=>{const l=layerById(editor.selected);if(l){l.color=e.target.value;renderStage()}}
+function startDrag(e,id){selectLayer(id);const l=layerById(id),sx=e.clientX,sy=e.clientY,ox=l.x,oy=l.y;const move=ev=>{const s=formatSize(editor.ad.format);l.x=Math.max(0,Math.min(s.w-l.w,ox+(ev.clientX-sx)/editor.scale));l.y=Math.max(0,Math.min(s.h-l.h,oy+(ev.clientY-sy)/editor.scale));renderStage()};const up=()=>{window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up)};window.addEventListener('pointermove',move);window.addEventListener('pointerup',up)}
+function renderLayerList(){if(!editor.ad)return $('#layerList').innerHTML='';$('#layerList').innerHTML=[...editor.ad.layers].sort((a,b)=>(b.z||0)-(a.z||0)).map(l=>{const name=l.type==='image'?(assetFor(l.assetId)?.name||'画像'):l.text;return`<div class="layer-row"><span>${esc(name).slice(0,24)}</span><button data-lsel="${l.id}">選択</button></div>`}).join('')||'<div class="muted">レイヤーなし</div>';$$('[data-lsel]').forEach(b=>b.onclick=()=>selectLayer(b.dataset.lsel))}
+function auditLabels(){if(!editor.ad)return[];const a=auditAd(editor.ad);return[['MASTER素材',a.master],['使用禁止素材なし',a.forbidden],['正式サイズ',a.size],['商品名',a.name],['価格',a.price],['CTA',a.cta],['購入導線',a.link]]}function renderAudit(){$('#audit').innerHTML=auditLabels().map(([n,ok])=>`<div class="audit-item ${ok?'ok':'ng'}">${ok?'✓':'!'} ${esc(n)}</div>`).join('')}
+function saveCurrentAd(){if(!editor.ad)return alert('広告を作成してください。');editor.ad.itemId=$('#gItem').value;editor.ad.format=$('#gFormat').value;editor.ad.status=$('#gStatus').value;editor.ad.updatedAt=new Date().toISOString();const au=auditAd(editor.ad);editor.ad.audit=au;if(editor.ad.status==='完成'&&!Object.values(au).every(Boolean))return alert('公開前チェックに未完了があります。完成にはできません。');const n=data.ads.findIndex(a=>a.id===editor.ad.id);n>=0?data.ads[n]=structuredClone(editor.ad):data.ads.push(structuredClone(editor.ad));persist();alert('広告を保存しました。')}
+function loadAdIntoEditor(id){const a=data.ads.find(x=>x.id===id);if(!a)return;editor.ad=structuredClone(a);editor.selected=null;showTab('generator');syncEditorInputs();renderStage()}
+function saveTemplate(){if(!editor.ad)return alert('広告を作成してください。');const item=itemFor(editor.ad.itemId),name=prompt('テンプレート名',`${item?.series||item?.name||'LINE'}｜${editor.ad.format}販売広告`);if(!name)return;data.templates.push({id:uid(),name,format:editor.ad.format,layers:structuredClone(editor.ad.layers),createdAt:new Date().toISOString()});persist();alert('テンプレートを保存しました。')}
+function loadTemplate(id){const t=data.templates.find(x=>x.id===id);if(!t)return;if(!editor.ad)newEditorAd();editor.ad.format=t.format;editor.ad.layers=structuredClone(t.layers).map(l=>({...l,id:uid()}));editor.ad.status='制作中';syncEditorInputs();showTab('generator');renderStage()}
+function duplicateTemplate(){const id=$('#templateSelect').value,t=data.templates.find(x=>x.id===id);if(!t)return;data.templates.push({...structuredClone(t),id:uid(),name:t.name+' コピー'});persist()}
+async function exportPNG(){if(!editor.ad)return alert('広告を作成してください。');const au=auditAd(editor.ad);if(!Object.values(au).every(Boolean)&&!confirm('公開前チェックに未完了があります。それでもPNGを書き出しますか？'))return;const s=formatSize(editor.ad.format),c=document.createElement('canvas');c.width=s.w;c.height=s.h;const ctx=c.getContext('2d');ctx.fillStyle='#ffffff';ctx.fillRect(0,0,s.w,s.h);for(const l of [...editor.ad.layers].sort((a,b)=>(a.z||0)-(b.z||0))){if(l.type==='image'){const b=await getBlob(l.assetId);if(!b)continue;const u=URL.createObjectURL(b),img=new Image();await new Promise((res,rej)=>{img.onload=res;img.onerror=rej;img.src=u});ctx.drawImage(img,l.x,l.y,l.w,l.h);URL.revokeObjectURL(u)}else{ctx.save();ctx.fillStyle=l.color||'#3d3137';ctx.font=`${l.bold?'700':'400'} ${l.fontSize||48}px -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif`;ctx.textAlign='center';ctx.textBaseline='middle';const lines=String(l.text||'').split('\n'),lh=(l.fontSize||48)*1.35,start=l.y+l.h/2-(lines.length-1)*lh/2;lines.forEach((line,idx)=>ctx.fillText(line,l.x+l.w/2,start+idx*lh,l.w));ctx.restore()}}c.toBlob(blob=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);const item=itemFor(editor.ad.itemId);a.download=`${(item?.name||'majochichi').replace(/[\\/:*?"<>|]/g,'_')}_${editor.ad.format.replace(':','x')}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)},'image/png')}
+function refreshGenerator(){fillGeneratorSelects();if(!editor.ad&&data.items.length)newEditorAd();else{syncEditorInputs();renderStage()}}
+
+function exportData(){const clone=structuredClone(data);const blob=new Blob([JSON.stringify(clone,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='majochichi-brand-os-v4-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+$('#importFile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{data=normalize(JSON.parse(await f.text()));StorageLayer.set(V3,JSON.stringify(data));renderAll();alert('JSONを読み込みました。画像本体はJSONに含まれないため、必要に応じてASSETSから再登録してください。')}catch(err){alert('JSONの読み込みに失敗しました。')}e.target.value=''};
+$$('[data-tab]').forEach(b=>b.onclick=()=>showTab(b.dataset.tab));$('#addItemBtn').onclick=$('#newItemBtn').onclick=()=>openItem();$('#saveItemBtn').onclick=saveItem;$('#addAssetBtn').onclick=()=>openAsset();$('#saveAssetBtn').onclick=saveAsset;$('#addWeeklyBtn').onclick=()=>openWeekly();$('#saveWeeklyBtn').onclick=saveWeekly;$('#createAdBtn').onclick=()=>{showTab('generator');newEditorAd()};$('#newAdDraftBtn').onclick=newEditorAd;$('#addAssetLayerBtn').onclick=addAssetLayer;$('#addTextLayerBtn').onclick=addTextLayer;$('#saveAdDraftBtn').onclick=saveCurrentAd;$('#saveTemplateBtn').onclick=saveTemplate;$('#loadTemplateBtn').onclick=()=>loadTemplate($('#templateSelect').value);$('#duplicateTemplateBtn').onclick=duplicateTemplate;$('#exportPngBtn').onclick=exportPNG;$('#deleteLayerBtn').onclick=()=>{if(!editor.selected)return;editor.ad.layers=editor.ad.layers.filter(l=>l.id!==editor.selected);editor.selected=null;renderStage()};$('#centerLayerBtn').onclick=()=>{const l=layerById(editor.selected);if(!l)return;const s=formatSize(editor.ad.format);l.x=(s.w-l.w)/2;l.y=(s.h-l.h)/2;renderStage()};$('#frontLayerBtn').onclick=()=>{const l=layerById(editor.selected);if(!l)return;l.z=Math.max(0,...editor.ad.layers.map(x=>x.z||0))+1;renderStage()};$('#backLayerBtn').onclick=()=>{const l=layerById(editor.selected);if(!l)return;l.z=Math.min(0,...editor.ad.layers.map(x=>x.z||0))-1;renderStage()};$('#gItem').onchange=()=>{if(editor.ad){editor.ad.itemId=$('#gItem').value;renderAudit()}};$('#gFormat').onchange=()=>{if(editor.ad){editor.ad.format=$('#gFormat').value;renderStage()}};$('#gStatus').onchange=()=>{if(editor.ad)editor.ad.status=$('#gStatus').value};$('#exportBtn').onclick=exportData;['q','typeFilter','statusFilter'].forEach(id=>$('#'+id).addEventListener('input',renderItems));window.addEventListener('resize',()=>editor.ad&&renderStage());
+renderAll();
+
+// ===== Version 4 PWA =====
+let deferredInstallPrompt=null;
+const isStandalone=()=>window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone===true;
+const isIOS=()=>/iphone|ipad|ipod/i.test(navigator.userAgent);
+function updateOnlineState(){
+  const badge=document.getElementById('offlineBadge');
+  if(badge) badge.classList.toggle('show',!navigator.onLine);
+}
+function setupPWA(){
+  const banner=document.getElementById('pwaBanner');
+  const install=document.getElementById('pwaInstallBtn');
+  const dismiss=document.getElementById('pwaDismissBtn');
+  const help=document.getElementById('pwaHelp');
+  if(!banner||isStandalone()) return;
+
+  const dismissed=StorageLayer.get('majochichiPwaBannerDismissed')==='1';
+  if(isIOS()){
+    if(help) help.textContent='Safariの共有ボタン →「ホーム画面に追加」で使えます。';
+    if(install) install.style.display='none';
+    if(!dismissed) banner.classList.add('show');
+  }
+
+  window.addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferredInstallPrompt=e;
+    if(!dismissed) banner.classList.add('show');
+  });
+
+  if(install) install.addEventListener('click',async()=>{
+    if(!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt=null;
+    banner.classList.remove('show');
+  });
+  if(dismiss) dismiss.addEventListener('click',()=>{
+    banner.classList.remove('show');
+    StorageLayer.set('majochichiPwaBannerDismissed','1');
+  });
+  window.addEventListener('appinstalled',()=>banner.classList.remove('show'));
+
+  // In normal browser mode, show a subtle guide on mobile even if install event is delayed.
+  if(/Android/i.test(navigator.userAgent) && !dismissed){
+    setTimeout(()=>{ if(!isStandalone()) banner.classList.add('show') },1200);
+  }
+}
+if('serviceWorker' in navigator && (location.protocol==='https:' || location.hostname==='localhost' || location.hostname==='127.0.0.1')){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(err=>console.warn('SW registration failed',err)));
+}
+window.addEventListener('online',updateOnlineState);
+window.addEventListener('offline',updateOnlineState);
+updateOnlineState();
+setupPWA();
+
+</script></body></html>
